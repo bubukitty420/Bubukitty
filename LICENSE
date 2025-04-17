@@ -1,4 +1,72 @@
-                    GNU GENERAL PUBLIC LICENSE
+        bounty submissions are rated by GitHub using a purposefully simple scale. Each vulnerability is unique, but the following is a rough guideline we use internally for rating and rewarding submissions:
+
+$20,000 - $30,000+
+Critical
+Critical severity issues present a direct and immediate risk to a broad array of our users or to a GitHub product itself. They often affect relatively low-level/foundational components in one of our application stacks or infrastructure. For example:
+
+arbitrary code/command execution on a server in our production network
+arbitrary SQL queries on a production database
+bypassing the login process, either password or 2FA
+access to sensitive production user data or access to internal production systems
+accessing another user’s data in the GitHub Actions service
+The upper bound for critical vulnerabilities, $30,000, is only a guideline, and GitHub may reward higher amounts for exceptional reports.
+
+$10,000 - $20,000
+High
+High severity issues allow an attacker to read or modify highly sensitive data that they are not authorized to access. They are generally more narrow in scope than critical issues, though they may still grant an attacker extensive access. For example:
+
+injecting attacker controlled content into GitHub.com (XSS) that bypasses CSP
+bypassing authorization logic to grant a repository or package collaborator more access than intended
+discovering sensitive user or GitHub data in a publicly exposed resource, such as an S3 bucket
+overwriting a customer repository or package that should be inaccessible
+gaining access to a non-critical resource that only employees should be able to reach
+using the GitHub Actions repo-scoped GitHub token to access high-risk private content outside of that repository
+sending authentication credentials from a client app to an unintended server
+code execution in a client app that requires no user interaction, such as arbitrary code execution upon repo clone or via a protocol handler
+$4,000 - $10,000
+Medium
+Medium severity issues allow an attacker to read or modify limited amounts of data that they are not authorized to access. They generally grant access to less sensitive information than high severity issues. For example:
+
+disclosing the title of issues in private repositories, which should be be inaccessible
+injecting attacker controlled content into GitHub.com (XSS) but not bypassing CSP or executing sensitive actions with another user’s session
+bypassing CSRF validation for low risk actions, such as starring a repository or unsubscribing from a mailing list
+code execution in a client app that requires minimal, expected user interaction, such as performing actions on a repository or with a package that a user would not expect to lead to code execution
+package integrity compromise, i.e., downloading a package that does not match the integrity as defined in package-lock.json
+$617 - $2,000
+Low
+Low severity issues allow an attacker to access extremely limited amounts of data. They may violate an expectation for how something is intended to work but allow nearly no escalation of privilege or ability to trigger unintended behavior by an attacker. For example:
+
+signing up arbitrary users for access to an “early access feature” without their consent
+creating an issue comment that bypasses our image proxying filter by providing a malformed URL
+triggering verbose or debug error pages without proof of exploitability or obtaining sensitive information
+triggering application exceptions that could affect many users
+injecting JavaScript event handlers into links, etc., that are mitigated by CSP on GitHub.com
+disclosing the existence of private packages on npm that should be inaccessible, e.g., through error messages (but not through timing attacks, which are ineligible)
+novel supply chain vulnerabilities that affect a GitHub product but are not solely limited to that product
+credentials such as those from the .npmrc file or from GitHub Enterprise Server being leaked in logs
+Scope
+GitHub runs a number of services but only submissions under the following domains are eligible for rewards. Any GitHub-owned domains not listed below are not in scope, not eligible for rewards, and not covered by our legal safe harbor.
+
+github.com
+This is our main domain for hosting user-facing GitHub services. All subdomains under github.com are in-scope except:
+blog.github.com
+community.github.com
+email.enterprise.github.com
+email.finance.github.com
+email.staging.finance.github.com
+email.support.github.com
+email.verify.github.com
+google7650dcf6146f04d8.github.com
+k1._domainkey.github.com
+k1._domainkey.mcmail.github.com
+mcmail.github.com
+resources.github.com
+*.resources.github.com
+sgmail.github.com
+*.sgmail.github.com
+shop.github.com
+smtp.github.com
+*.smtp.github.com            GNU GENERAL PUBLIC LICENSE
                        Version 3, 29 June 2007
 
  Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
